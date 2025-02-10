@@ -16,20 +16,6 @@ namespace CronTask
 
         public static TimeSpan TempoGastoTarefa { get; set; }
 
-        public static void SalvarTarefa(string filePath, List<Tarefa> tarefas)
-        {
-            
-            using (StreamWriter sw = new StreamWriter(filePath))
-            {
-                sw.WriteLine("NomeDaTarefa,HorarioInicioTarefa,HorarioFimTarefa,TempoGastoTarefa");
-                foreach (var tarefa in tarefas)
-                {
-                    sw.WriteLine($"{tarefa.NomeDaTarefa},{tarefa.HorarioInicioTarefa:yyyy-MM-dd HH:mm:ss},{tarefa.HorarioFimTarefa:yyyy-MM-dd HH:mm:ss},{tarefa.TempoGastoTarefa:hh\\:mm\\:ss}");
-                }
-            }
-
-        }
-
         public static List<Tarefa> CarregarCSV(string path)
         {
             List<Tarefa> tarefas = new List<Tarefa>();

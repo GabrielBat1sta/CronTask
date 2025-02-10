@@ -14,9 +14,8 @@ namespace CronTask
 
         public string NomeDaTarefa { get;  set; }
 
-        public DateTime HorarioInicioTarefa { get; set; }
-
-        public DateTime HorarioFimTarefa { get; set; }
+        public DateTime HorarioInicioTarefa { get; set; } = DateTime.MinValue;
+        public DateTime HorarioFimTarefa { get; set; } = DateTime.MinValue;
 
         public TimeSpan TempoGastoTarefa => HorarioFimTarefa - HorarioInicioTarefa;
 
@@ -31,6 +30,11 @@ namespace CronTask
             HorarioInicioTarefa = horarioInicioTarefa;
             HorarioFimTarefa = horarioFimTarefa;
             
+        }
+
+        public Tarefa(string nomeDaTarefa)
+        {
+            NomeDaTarefa = nomeDaTarefa;
         }
     }
 }

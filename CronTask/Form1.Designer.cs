@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             btnIniciar = new Button();
             btnParar = new Button();
-            btnSalvar = new Button();
+            btnAdicionarTarefa = new Button();
             btnCarregar = new Button();
             lblTime = new Label();
             tbTarefa = new TextBox();
@@ -44,13 +45,14 @@
             // 
             // btnIniciar
             // 
+            btnIniciar.Enabled = false;
             btnIniciar.Location = new Point(12, 12);
             btnIniciar.Name = "btnIniciar";
             btnIniciar.Size = new Size(106, 47);
             btnIniciar.TabIndex = 0;
             btnIniciar.Text = "Iniciar";
             btnIniciar.UseVisualStyleBackColor = true;
-            btnIniciar.Click += btnIniciar_Click;
+            btnIniciar.Click += btnIniciar_Click_1;
             // 
             // btnParar
             // 
@@ -63,25 +65,24 @@
             btnParar.UseVisualStyleBackColor = true;
             btnParar.Click += btnParar_Click_1;
             // 
-            // btnSalvar
+            // btnAdicionarTarefa
             // 
-            btnSalvar.Location = new Point(250, 48);
-            btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(106, 47);
-            btnSalvar.TabIndex = 4;
-            btnSalvar.Text = "Salvar Tarefa";
-            btnSalvar.UseVisualStyleBackColor = true;
-            btnSalvar.Click += btnSalvar_Click;
+            btnAdicionarTarefa.Location = new Point(491, 51);
+            btnAdicionarTarefa.Name = "btnAdicionarTarefa";
+            btnAdicionarTarefa.Size = new Size(106, 47);
+            btnAdicionarTarefa.TabIndex = 4;
+            btnAdicionarTarefa.Text = "Adicionar Tarefa";
+            btnAdicionarTarefa.UseVisualStyleBackColor = true;
+            btnAdicionarTarefa.Click += btnAdicionarTarefa_Click_1;
             // 
             // btnCarregar
             // 
             btnCarregar.Location = new Point(124, 441);
             btnCarregar.Name = "btnCarregar";
-            btnCarregar.Size = new Size(106, 47);
-            btnCarregar.TabIndex = 5;
+            btnCarregar.Size = new Size(106, 43);
+            btnCarregar.TabIndex = 11;
             btnCarregar.Text = "Carregar CSV";
-            btnCarregar.UseVisualStyleBackColor = true;
-            btnCarregar.Click += btnCarregar_Click_1;
+            btnCarregar.Click += btnCarregar_Click;
             // 
             // lblTime
             // 
@@ -97,7 +98,7 @@
             // 
             tbTarefa.Location = new Point(491, 22);
             tbTarefa.Name = "tbTarefa";
-            tbTarefa.Size = new Size(308, 23);
+            tbTarefa.Size = new Size(353, 23);
             tbTarefa.TabIndex = 7;
             // 
             // dataGridView1
@@ -113,7 +114,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(250, 20);
+            label1.Location = new Point(239, 20);
             label1.Name = "label1";
             label1.Size = new Size(246, 25);
             label1.TabIndex = 10;
@@ -122,32 +123,29 @@
             // 
             // btnFecharCSV
             // 
-            btnFecharCSV.Location = new Point(236, 441);
+            btnFecharCSV.Location = new Point(239, 441);
             btnFecharCSV.Name = "btnFecharCSV";
-            btnFecharCSV.Size = new Size(106, 47);
-            btnFecharCSV.TabIndex = 11;
+            btnFecharCSV.Size = new Size(106, 43);
+            btnFecharCSV.TabIndex = 2;
             btnFecharCSV.Text = "Fechar CSV";
-            btnFecharCSV.UseVisualStyleBackColor = true;
             btnFecharCSV.Click += btnFecharCSV_Click;
             // 
             // BtnSair
             // 
-            BtnSair.Location = new Point(738, 441);
+            BtnSair.Location = new Point(740, 441);
             BtnSair.Name = "BtnSair";
-            BtnSair.Size = new Size(106, 47);
-            BtnSair.TabIndex = 12;
+            BtnSair.Size = new Size(104, 43);
+            BtnSair.TabIndex = 1;
             BtnSair.Text = "Sair";
-            BtnSair.UseVisualStyleBackColor = true;
             BtnSair.Click += BtnSair_Click;
             // 
             // btnSalvarCSV
             // 
             btnSalvarCSV.Location = new Point(12, 441);
             btnSalvarCSV.Name = "btnSalvarCSV";
-            btnSalvarCSV.Size = new Size(106, 47);
-            btnSalvarCSV.TabIndex = 13;
+            btnSalvarCSV.Size = new Size(106, 43);
+            btnSalvarCSV.TabIndex = 0;
             btnSalvarCSV.Text = "Salvar CSV";
-            btnSalvarCSV.UseVisualStyleBackColor = true;
             btnSalvarCSV.Click += btnSalvarCSV_Click;
             // 
             // Form1
@@ -163,12 +161,12 @@
             Controls.Add(tbTarefa);
             Controls.Add(lblTime);
             Controls.Add(btnCarregar);
-            Controls.Add(btnSalvar);
+            Controls.Add(btnAdicionarTarefa);
             Controls.Add(btnParar);
             Controls.Add(btnIniciar);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
-            Text = "Form1";
-            Load += Form1_Load;
+            Text = "CronTask";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -178,7 +176,7 @@
 
         private Button btnIniciar;
         private Button btnParar;
-        private Button btnSalvar;
+        private Button btnAdicionarTarefa;
         private Button btnCarregar;
         private Label lblTime;
         private TextBox tbTarefa;
